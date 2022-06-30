@@ -3,7 +3,7 @@ Eyepax Software Engineer Hiring - Practical Test
 
 #### Used Language - Java 8
 
-#### Algorithm followed by :.
+#### Algorithm followed by :
 ```
 first iterating 2D colorGrid node top to bottom and earch row left to right.
 then if current node has neighours for each right, left, up, down directions
@@ -13,7 +13,7 @@ then each block save to a nodeList and each block compares the which block has m
 ```
 
 
-#### Time complexity : 
+#### Time complexity : O (N * M)
 
 
 #### Web Searched
