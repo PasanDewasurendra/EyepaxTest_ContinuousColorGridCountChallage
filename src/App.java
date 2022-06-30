@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,10 +56,9 @@ public class App {
 
 
     public static Node moveToRight(Node current){
-        System.out.println(current);
         Node next = current.getNeighbourRight();
         if(next != null && next.getColor().equals(current.getColor())){
-            moveToRight(next);
+            return moveToRight(next);
         }
         return current;
     }
@@ -66,7 +66,7 @@ public class App {
     public static Node moveToLeft(Node current){
         Node previous = current.getNeighbourLeft();
         if(previous != null && previous.getColor().equals(current.getColor())){
-            moveToLeft(previous);
+            return moveToLeft(previous);
         }
         return current;
     }
@@ -74,7 +74,7 @@ public class App {
     public static Node moveToUp(Node current){
         Node up = current.getNeighbourTop();
         if(up != null && up.getColor().equals(current.getColor())){
-            moveToUp(up);
+            return moveToUp(up);
         }
         return current;
     }
@@ -82,7 +82,7 @@ public class App {
     public static Node moveToDown(Node current){
         Node down = current.getNeighbourBottom();
         if(down != null && down.getColor().equals(current.getColor())){
-            moveToDown(down);
+            return moveToDown(down);
         }
         return current;
     }
@@ -90,16 +90,22 @@ public class App {
 
     public static void findLargestBlock(){
 
-        List<Node> largestBlocks = new ArrayList<>();
+        List<Node> largestBlock = new ArrayList<>();
         int cursorX = 0;
         int cursorY = 0;
 
-        while(cursorX < colorGrid.size()-1 || cursorY < colorGrid.size()-1){
+        while(cursorX <= colorGrid.size()-1 && cursorY <= colorGrid.size()-1){
             Node current = colorGrid.get(cursorX).get(cursorY);
             int lastRightIndex = moveToRight(current).getY();
-            int count = lastRightIndex - cursorY;
-            System.out.println(lastRightIndex);
-            break;
+            int rightCount = lastRightIndex + 1 - cursorY;
+
+
+
+            cursorY = lastRightIndex + 1;
+            if(cursorX < colorGrid.size() && cursorY == colorGrid.size()){
+                cursorX++;
+                cursorY = 0;
+            }
         }
 
     }
