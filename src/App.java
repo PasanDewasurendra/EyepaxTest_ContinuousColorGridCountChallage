@@ -96,12 +96,22 @@ public class App {
 
         while(cursorX <= colorGrid.size()-1 && cursorY <= colorGrid.size()-1){
             Node current = colorGrid.get(cursorX).get(cursorY);
-            int lastRightIndex = moveToRight(current).getY();
-            int rightCount = lastRightIndex + 1 - cursorY;
+            Node right = current.getNeighbourRight();
+            Node left = current.getNeighbourLeft();
+            Node top = current.getNeighbourTop();
+            Node bottom = current.getNeighbourBottom();
 
+            if(left != null && current.getColor().equals(left.getColor())){
+                Node lastNext = moveToRight(current);
+                int rightCount = lastNext.getY() + 1 - cursorY;
+                cursorY = lastNext.getY() + 1;
+                System.out.print(rightCount + " ");
+            }
+            if(bottom != null && current.getColor().equals(bottom.getColor())){
 
+            }
 
-            cursorY = lastRightIndex + 1;
+            cursorY = cursorY + 1;
             if(cursorX < colorGrid.size() && cursorY == colorGrid.size()){
                 cursorX++;
                 cursorY = 0;
