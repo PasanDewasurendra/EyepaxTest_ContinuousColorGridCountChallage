@@ -2,10 +2,10 @@ public class Node {
     private String color;
     private int x;
     private int y;
-    private Node neighbourLeft;
-    private Node neighbourRight;
-    private Node neighbourTop;
-    private Node neighbourBottom;
+    private Node left;
+    private Node right;
+    private Node top;
+    private Node bottom;
 
     public Node(String color, int x, int y) {
         this.color = color;
@@ -13,14 +13,14 @@ public class Node {
         this.y = y;
     }
 
-    public Node(String color, int x, int y, Node neighbourLeft, Node neighbourRight, Node neighbourTop, Node neighbourBottom) {
+    public Node(String color, int x, int y, Node left, Node right, Node top, Node bottom) {
         this.color = color;
         this.x = x;
         this.y = y;
-        this.neighbourLeft = neighbourLeft;
-        this.neighbourRight = neighbourRight;
-        this.neighbourTop = neighbourTop;
-        this.neighbourBottom = neighbourBottom;
+        this.left = left;
+        this.right = right;
+        this.top = top;
+        this.bottom = bottom;
     }
 
     public String getColor() {
@@ -32,35 +32,35 @@ public class Node {
     }
 
     public Node getNeighbourLeft() {
-        return neighbourLeft;
+        return left;
     }
 
-    public void setNeighbourLeft(Node neighbourLeft) {
-        this.neighbourLeft = neighbourLeft;
+    public void setNeighbourLeft(Node left) {
+        this.left = left;
     }
 
     public Node getNeighbourRight() {
-        return neighbourRight;
+        return right;
     }
 
-    public void setNeighbourRight(Node neighbourRight) {
-        this.neighbourRight = neighbourRight;
+    public void setNeighbourRight(Node right) {
+        this.right = right;
     }
 
     public Node getNeighbourTop() {
-        return neighbourTop;
+        return top;
     }
 
-    public void setNeighbourTop(Node neighbourTop) {
-        this.neighbourTop = neighbourTop;
+    public void setNeighbourTop(Node top) {
+        this.top = top;
     }
 
     public Node getNeighbourBottom() {
-        return neighbourBottom;
+        return bottom;
     }
 
-    public void setNeighbourBottom(Node neighbourBottom) {
-        this.neighbourBottom = neighbourBottom;
+    public void setNeighbourBottom(Node bottom) {
+        this.bottom = bottom;
     }
 
     public int getX() {
@@ -85,10 +85,6 @@ public class Node {
         sb.append("color='").append(color).append('\'');
         sb.append(", x=").append(x);
         sb.append(", y=").append(y);
-        sb.append(", neighbourLeft=").append(neighbourLeft);
-        sb.append(", neighbourRight=").append(neighbourRight);
-        sb.append(", neighbourTop=").append(neighbourTop);
-        sb.append(", neighbourBottom=").append(neighbourBottom);
         sb.append('}');
         return sb.toString();
     }
